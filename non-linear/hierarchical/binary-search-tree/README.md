@@ -2,7 +2,7 @@
 
 ## Overview
 
-Binary Search Tree (BST) is an efficient implementation of a Binary Search Tree as an Abstract Data Type (ADT) in C. The BST is a hierarchical data structure that stores data in a sorted manner, allowing for quick search, insertion, and deletion operations. This implementation provides a comprehensive set of functions to manage the tree, analyze its properties, and perform various traversals. It's built in pure C, making it a lightweight and standalone solution for projects requiring ordered data storage.
+BinarySearchTree is an efficient implementation of a Binary Search Tree as an Abstract Data Type (ADT) in C. The BST is a hierarchical data structure that stores data in a sorted manner, allowing for quick search, insertion, and deletion operations. This implementation provides a comprehensive set of functions to manage the tree, analyze its properties, and perform various traversals. It's built in pure C, making it a lightweight and standalone solution for projects requiring ordered data storage.
 
 ## Table of Contents
 

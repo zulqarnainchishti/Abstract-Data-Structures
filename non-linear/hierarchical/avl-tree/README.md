@@ -1,8 +1,8 @@
-# AVL Tree: A Self-Balancing Binary Search Tree ADT for C
+# AVLTree: A Self-Balancing Binary Search Tree ADT for C
 
 ## Overview
 
-AVL Tree is an efficient implementation of a self-balancing Binary Search Tree as an Abstract Data Type (ADT) in C. It's a hierarchical data structure that stores data in a sorted manner while automatically maintaining balance to ensure optimal performance. This implementation provides a comprehensive set of functions to manage the tree, analyze its properties, and perform various traversals. Its self-balancing nature guarantees that operations like search, insertion, and deletion have a time complexity of $O(log n)$, making it superior to a standard BST for large, dynamic datasets.
+AVLTree is an efficient implementation of a self-balancing Binary Search Tree as an Abstract Data Type (ADT) in C. It's a hierarchical data structure that stores data in a sorted manner while automatically maintaining balance to ensure optimal performance. This implementation provides a comprehensive set of functions to manage the tree, analyze its properties, and perform various traversals. Its self-balancing nature guarantees that operations like search, insertion, and deletion have a time complexity of $O(log n)$, making it superior to a standard BST for large, dynamic datasets.
 
 ---
 
