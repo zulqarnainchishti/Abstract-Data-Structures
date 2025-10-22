@@ -10,16 +10,16 @@ The Queue ADT is a minimalistic and efficient implementation of a first-in, firs
 
 ## Table of Contents
 
-- [Features](https://www.google.com/search?q=%23features)
-- [Function Overview](https://www.google.com/search?q=%23function-overview)
-  - [Core Management](https://www.google.com/search?q=%23core-management)
-  - [Status Queries](https://www.google.com/search?q=%23status-queries)
-  - [Operations](https://www.google.com/search?q=%23operations)
-  - [Diagnostics](https://www.google.com/search?q=%23diagnostics)
-- [How to Compile and Run](https://www.google.com/search?q=%23how-to-compile-and-run)
-- [Limitations](https://www.google.com/search?q=%23limitations)
-- [License](https://www.google.com/search?q=%23license)
-- [Author](https://www.google.com/search?q=%23author)
+- [Features](#features)
+- [Function Overview](#function-overview)
+  - [Core Management](#core-management)
+  - [Status Queries](#status-queries)
+  - [Operations](#operations)
+  - [Diagnostics](#diagnostics)
+- [How to Compile and Run](#how-to-compile-and-run)
+- [Limitations](#limitations)
+- [License](#license)
+- [Author](#author)
 
 ---
 

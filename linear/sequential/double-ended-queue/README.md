@@ -81,7 +81,7 @@ The `adt_Deque.h` header file exposes the following API functions:
     Use any standard C compiler to compile your program. Example using GCC:
 
     ```bash
-    gcc -o test_Deque test_Deque.c -Wall -Wextra -std=c11
+    gcc -o test_Deque test_Deque.c
     ```
 
 4.  **Run the Executable**

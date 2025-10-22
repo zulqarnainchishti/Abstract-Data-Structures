@@ -86,7 +86,7 @@ The `adt_LinkedList.h` header file exposes the following API functions:
     Use any standard C compiler to compile your program. Example using GCC:
 
     ```bash
-    gcc -o test_LinkedList test_LinkedList.c -Wall -Wextra -std=c11
+    gcc -o test_LinkedList test_LinkedList.c
     ```
 
     _Note: Since `adt_LinkedList.h` is header-only, you only need to compile your main source file that includes it._

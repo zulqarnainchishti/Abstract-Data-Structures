@@ -8,12 +8,12 @@ Vector is a robust and feature-rich implementation of a dynamic array as an Abst
 
 - [Features](#features)
 - [Function Overview](#function-overview)
-    - [Core Management](#core-management)
-    - [Element Manipulation](#element-manipulation)
-    - [Data Transformation & Utilities](#data-transformation--utilities)
-    - [Search Algorithms](#search-algorithms)
-    - [Sorting Algorithms](#sorting-algorithms)
-    - [Functional Programming](#functional-programming-inspired)
+  - [Core Management](#core-management)
+  - [Element Manipulation](#element-manipulation)
+  - [Data Transformation & Utilities](#data-transformation--utilities)
+  - [Search Algorithms](#search-algorithms)
+  - [Sorting Algorithms](#sorting-algorithms)
+  - [Functional Programming](#functional-programming-inspired)
 - [How to Compile and Run](#how-to-compile-and-run)
 - [Limitations](#limitations)
 - [License](#license)
@@ -119,7 +119,7 @@ The `adt_Vector.h` header file exposes the following public API functions:
     Since `adt_Vector.h` is a header-only library, you just need to compile your main application file (e.g., `test_Vector.c`) and link against the math library. For example, if you're using GCC, compile your program like this:
 
     ```bash
-    gcc -o test_Vector test_Vector.c -lm
+    gcc -o test_Vector test_Vector.c
     ```
 
     _This command will compile your source file (`test_Vector.c`) and link it with the necessary math functions to produce the final executable (`test_Vector`)._

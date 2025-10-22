@@ -57,7 +57,7 @@ The `adt_CircularQueue.h` header file exposes the following API functions:
 ## How to Compile and Run
 
 1.  **Download the Library**
-    Ensure you have the `adt_CircularQueue.h` file and a corresponding test program (e.g., `test_CircularQueue.h.c`) in the same directory.
+    Ensure you have the `adt_CircularQueue.h` file and a corresponding test program (e.g., `test_CircularQueue.c`) in the same directory.
 
 2.  **Include the Header File**
     Add the following directive in your source file:
@@ -70,14 +70,14 @@ The `adt_CircularQueue.h` header file exposes the following API functions:
     Use any standard C compiler to compile your program. Example using GCC:
 
     ```bash
-    gcc -o test_CircularQueue.h test_CircularQueue.h.c -Wall -Wextra -std=c11
+    gcc -o test_CircularQueue test_CircularQueue.c
     ```
 
 4.  **Run the Executable**
     After successful compilation:
 
     ```bash
-    ./test_CircularQueue.h
+    ./test_CircularQueue
     ```
 
 5.  **Example Usage**

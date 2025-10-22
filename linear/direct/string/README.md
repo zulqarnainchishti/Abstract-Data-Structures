@@ -106,7 +106,7 @@ The `adt_String.h` header file exposes the following public API functions:
     For example, to compile `test_String.c`:
 
     ```bash
-    gcc -o test_String test_String.c -Wall -Wextra -std=c11
+    gcc -o test_String test_String.c
     ```
 
     _(Optional: Add `-g` for debugging symbols if needed.)_

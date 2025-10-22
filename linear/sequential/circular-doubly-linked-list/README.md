@@ -85,7 +85,7 @@ The `adt_CircularDoublyLinkedList.h` header file exposes the following API funct
     Use any standard C compiler to compile your program. Example using GCC:
 
     ```bash
-    gcc -o test_CircularDoublyLinkedList test_CircularDoublyLinkedList.c -Wall -Wextra -std=c11
+    gcc -o test_CircularDoublyLinkedList test_CircularDoublyLinkedList.c
     ```
 
     _Note: Since `adt_CircularDoublyLinkedList.h` is a header-only library, you only need to compile your main source file that includes it. No separate compilation of the ADT itself is required._

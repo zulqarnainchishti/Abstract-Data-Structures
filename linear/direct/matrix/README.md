@@ -10,11 +10,11 @@ Matrix is a C library for mathematical matrix operations, designed for both educ
 
 - [Features](#features)
 - [Function Overview](#function-overview)
-      - [Core Management](#core-management)
-      - [Matrix Creation](#matrix-creation)
-      - [Element Manipulation](#element-manipulation)
-      - [Data Transformation](#data-transformation)
-      - [Linear Algebra](#linear-algebra)
+  - [Core Management](#core-management)
+  - [Matrix Creation](#matrix-creation)
+  - [Element Manipulation](#element-manipulation)
+  - [Data Transformation](#data-transformation)
+  - [Linear Algebra](#linear-algebra)
 - [How to Compile and Run](#how-to-compile-and-run)
 - [Limitations](#limitations)
 - [License](#license)
@@ -104,7 +104,7 @@ The `adt_Matrix.h` header file exposes the following public API functions:
     Since `adt_Matrix.h` is a header-only library, you just need to compile your main application file (e.g., `test_Matrix.c`) and link against the math library. For example, if you're using GCC, compile your program like this:
 
     ```bash
-    gcc -o test_Matrix test_Matrix.c -lm
+    gcc -o test_Matrix test_Matrix.c
     ```
 
     _This command will compile your source file (`test_Matrix.c`) and link it with the necessary math functions to produce the final executable (`test_Matrix`)._

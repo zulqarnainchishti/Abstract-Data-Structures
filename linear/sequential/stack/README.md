@@ -68,7 +68,7 @@ The `adt_Stack.h` header file exposes the following API functions:
    Use any standard C compiler to compile your program. Example using GCC:
 
    ```bash
-   gcc -o test_Stack test_Stack.c -Wall -Wextra -std=c11
+   gcc -o test_Stack test_Stack.c
    ```
 
 4. **Run the Executable**

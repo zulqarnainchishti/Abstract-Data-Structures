@@ -87,7 +87,7 @@ The `adt_DoublyLinkedList.h` header file exposes the following API functions:
     Use any standard C compiler to compile your program. Example using GCC:
 
     ```bash
-    gcc -o test_DoublyLinkedList test_DoublyLinkedList.c -Wall -Wextra -std=c11
+    gcc -o test_DoublyLinkedList test_DoublyLinkedList.c
     ```
 
     _Note: Since `adt_DoublyLinkedList.h` is a header-only library, you only need to compile your main source file that includes it. No separate compilation of the ADT itself is required._

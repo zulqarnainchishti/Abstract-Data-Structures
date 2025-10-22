@@ -28,6 +28,6 @@ data-structures
     └── unordered
         ├── graph
         ├── directed-graph
-        ├── hash-table
-        └── set
+        ├── hash-map
+        └── hash-set
 ```
