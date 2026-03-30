@@ -6,19 +6,18 @@
 #include <stdbool.h>
 
 /**
- * @brief Represents a Double-Ended Queue (Deque) data structure.
+ * @brief Represents a circular-array based Double-Ended Queue (Deque).
  */
 typedef struct
 {
-    int *array;   /**< Pointer to the dynamically allocated array. */
+    int *array;   /**< Pointer to the dynamically allocated circular array. */
     int front;    /**< Index of the front element. */
-    int rear;     /**< Index where the next element will be inserted at the rear. */
-    int capacity; /**< Maximum number of elements the deque can hold. */
-    int length;   /**< Current number of elements in the deque. */
+    int rear;     /**< Index of the next insertion position at the rear. */
+    int capacity; /**< Internal capacity of the buffer (actual usable size is capacity - 1). */
 } Deque;
 
 /**
- * @brief Initializes a new Deque.
+ * @brief Initializes a new Deque using a circular buffer.
  * @param capacity The maximum number of elements the deque can hold.
  * @return A new Deque instance.
  */
@@ -30,16 +29,15 @@ Deque init(int capacity)
         exit(EXIT_FAILURE);
     }
     Deque queue;
-    queue.array = (int *)malloc(capacity * sizeof(int));
+    queue.array = (int *)malloc((capacity + 1) * sizeof(int));
     if (!queue.array)
     {
         perror("Failed to initialize Deque");
         exit(EXIT_FAILURE);
     }
-    queue.front = capacity / 2;
-    queue.rear = capacity / 2;
-    queue.capacity = capacity;
-    queue.length = 0;
+    queue.front = 0;
+    queue.rear = 0;
+    queue.capacity = capacity + 1;
     return queue;
 }
 
@@ -50,15 +48,14 @@ Deque init(int capacity)
  */
 Deque copy(const Deque queue)
 {
-    Deque result = init(queue.capacity);
-    result.front = queue.front;
-    result.rear = queue.rear;
-    result.length = queue.length;
-    for (int i = queue.front; i < queue.rear; i++)
+    Deque copied = init(queue.capacity - 1);
+    int curr = queue.front;
+    while (curr != queue.rear)
     {
-        result.array[i] = queue.array[i];
+        copied.array[copied.rear++] = queue.array[curr];
+        curr = (curr + 1) % queue.capacity;
     }
-    return result;
+    return copied;
 }
 
 /**
@@ -67,9 +64,8 @@ Deque copy(const Deque queue)
  */
 void clear(Deque *queue)
 {
-    queue->front = queue->capacity / 2;
-    queue->rear = queue->capacity / 2;
-    queue->length = 0;
+    queue->front = 0;
+    queue->rear = 0;
 }
 
 /**
@@ -83,7 +79,6 @@ void destroy(Deque *vector)
     vector->front = 0;
     vector->rear = 0;
     vector->capacity = 0;
-    vector->length = 0;
 }
 
 /**
@@ -93,27 +88,29 @@ void destroy(Deque *vector)
  */
 bool isEmpty(const Deque queue)
 {
-    return queue.length == 0;
+    return queue.front == queue.rear;
 }
 
 /**
- * @brief Checks if the front end of the Deque is full.
+ * @brief Checks whether the Deque is full.
  * @param queue The Deque to check.
- * @return true if the front end is full, false otherwise.
+ * @return true if the deque is full, false otherwise.
  */
-bool isFrontFull(const Deque queue)
+bool isFull(const Deque queue)
 {
-    return queue.front == 0;
+    return (queue.rear + 1) % queue.capacity == queue.front;
 }
 
 /**
- * @brief Checks if the rear end of the Deque is full.
- * @param queue The Deque to check.
- * @return true if the rear end is full, false otherwise.
+ * @brief Returns the current number of elements in the Deque.
+ * @param queue The Deque to query.
+ * @return The number of elements currently stored in the deque.
  */
-bool isRearFull(const Deque queue)
+int length(const Deque queue)
 {
-    return queue.rear == queue.capacity;
+    if (queue.rear >= queue.front)
+        return queue.rear - queue.front;
+    return queue.capacity - queue.front + queue.rear;
 }
 
 /**
@@ -123,13 +120,13 @@ bool isRearFull(const Deque queue)
  */
 void enqueueFront(Deque *queue, int value)
 {
-    if (isFrontFull(*queue))
+    if (isFull(*queue))
     {
         printf("Deque Overflow\n");
         return;
     }
-    queue->array[--queue->front] = value;
-    queue->length++;
+    queue->front = (queue->front - 1 + queue->capacity) % queue->capacity;
+    queue->array[queue->front] = value;
 }
 
 /**
@@ -159,13 +156,8 @@ int dequeueFront(Deque *queue)
         printf("Deque Underflow\n");
         return -1;
     }
-    int value = queue->array[queue->front++];
-    queue->length--;
-    if (queue->length == 0)
-    {
-        queue->front = queue->capacity / 2;
-        queue->rear = queue->capacity / 2;
-    }
+    int value = queue->array[queue->front];
+    queue->front = (queue->front + 1) % queue->capacity;
     return value;
 }
 
@@ -176,13 +168,13 @@ int dequeueFront(Deque *queue)
  */
 void enqueueRear(Deque *queue, int value)
 {
-    if (isRearFull(*queue))
+    if (isFull(*queue))
     {
         printf("Deque Overflow\n");
         return;
     }
-    queue->array[queue->rear++] = value;
-    queue->length++;
+    queue->array[queue->rear] = value;
+    queue->rear = (queue->rear + 1) % queue->capacity;
 }
 
 /**
@@ -197,7 +189,7 @@ int peekRear(const Deque queue)
         printf("Deque Underflow\n");
         return -1;
     }
-    return queue.array[queue.rear - 1];
+    return queue.array[(queue.rear - 1 + queue.capacity) % queue.capacity];
 }
 
 /**
@@ -212,13 +204,8 @@ int dequeueRear(Deque *queue)
         printf("Deque Underflow\n");
         return -1;
     }
-    int value = queue->array[--queue->rear];
-    queue->length--;
-    if (queue->length == 0)
-    {
-        queue->front = queue->capacity / 2;
-        queue->rear = queue->capacity / 2;
-    }
+    queue->rear = (queue->rear - 1 + queue->capacity) % queue->capacity;
+    int value = queue->array[queue->rear];
     return value;
 }
 
@@ -228,12 +215,15 @@ int dequeueRear(Deque *queue)
  */
 void traverse(const Deque queue)
 {
+    int len = length(queue);
     printf("[");
-    for (int i = queue.front; i < queue.rear; i++)
+    int i = queue.front;
+    while (i != queue.rear)
     {
         printf(" %d", queue.array[i]);
+        i = (i + 1) % queue.capacity;
     }
-    printf(" ] : %d/%d\n", queue.length, queue.capacity);
+    printf(" ] : %d/%d\n", len, queue.capacity - 1);
 }
 
 #endif // DEQUE_H
